@@ -10,6 +10,8 @@ class Aircraft:
         self.positionY = C.HEIGHT / 2
         self.acceleration = 0
         self.shape = 'circle'
+        self.vy = 100
+        self.direction = -1
 
     def draw(self):
         """
@@ -24,21 +26,34 @@ class Aircraft:
         self.actor.image = 'aircraft-' + self.shape
 
     def go_ahead(self):
-        if self.shape == 'square':
+        if self.shape == 'triangle':
             if self.positionX <= C.MAXIMAL_X:
                 self.positionX += 10
 
     def go_back(self):
-        if self.shape == 'square':
+        if self.shape == 'triangle':
             if self.positionX >= C.MINIMAL_X:
                 self.positionX -= 10
 
     def go_up(self):
-        if self.shape == 'square':
+        if self.shape == 'triangle':
             if self.positionY >= 45:
                 self.positionY -= 10
 
     def go_down(self):
-        if self.shape == 'square':
+        if self.shape == 'triangle':
             if self.positionY <= 550:
                 self.positionY += 10
+
+    def circleMove(self, dt):
+        if self.direction == 1:
+            if self.positionY <= 550:
+                self.positionY += C.GRAVITY * dt
+            else:
+                self.direction = -1
+        else:
+            if self.positionY >= 45:
+                self.positionY -= C.GRAVITY * dt
+            else:
+                self.direction = 1
+
