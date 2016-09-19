@@ -35,16 +35,6 @@ class Aircraft:
             if self.positionX >= C.MINIMAL_X:
                 self.positionX -= 10
 
-    def go_up(self):
-        if self.shape == 'triangle':
-            if self.positionY >= 45:
-                self.positionY -= 10
-
-    def go_down(self):
-        if self.shape == 'triangle':
-            if self.positionY <= 550:
-                self.positionY += 10
-
     def circleMove(self, dt):
         if self.direction == 1:
             if self.positionY <= 550:

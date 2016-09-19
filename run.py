@@ -5,7 +5,6 @@ from stages.one import World
 import shared.constants as C
 
 TITLE = "SHAPE"
-GRAVITY = 500
 SPEED = 3
 
 aircraft = Aircraft(
@@ -26,10 +25,6 @@ def update(dt):
             aircraft.go_ahead()
         if keyboard.left:
             aircraft.go_back()
-        if keyboard.up:
-            aircraft.go_up()
-        if keyboard.down:
-            aircraft.go_down()
     elif (aircraft.shape == 'circle'):
         aircraft.circleMove(dt)
 
