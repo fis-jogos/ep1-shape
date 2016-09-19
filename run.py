@@ -28,6 +28,3 @@ def update(dt):
             aircraft.go_back()
     elif (aircraft.shape == 'circle'):
         aircraft.circleMove(dt)
-
-
-

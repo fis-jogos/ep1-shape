@@ -10,7 +10,7 @@ class Aircraft:
         self.positionY = C.HEIGHT / 2
         self.acceleration = 0
         self.shape = 'circle'
-        self.vy = 100
+        self.vx = 100
         self.directionY = 1
         self.directionX = 1
 
@@ -50,12 +50,11 @@ class Aircraft:
 
         if self.directionX == 1:
             if self.positionX <= C.MAXIMAL_X:
-                self.positionX += C.GRAVITY * dt
+                self.positionX += self.vx * dt
             else:
                 self.directionX = -1
         else:
             if self.positionX >= C.MINIMAL_X:
-                self.positionX -= C.GRAVITY * dt
+                self.positionX -= self.vx * dt
             else:
                 self.directionX = 1
-
