@@ -21,6 +21,10 @@ def update(dt):
         aircraft.go_ahead()
     if keyboard.left:
         aircraft.go_back()
+    if keyboard.up:
+        aircraft.go_up()
+    if keyboard.down:
+        aircraft.go_down()
     if keyboard.space:
         aircraft.change_shape()
 

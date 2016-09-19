@@ -6,7 +6,7 @@ class Aircraft:
     """
     def __init__(self, actor):
         self.actor = actor
-        self.positionX = 60
+        self.positionX = C.MINIMAL_X
         self.positionY = C.HEIGHT / 2
         self.acceleration = 0
         self.shape = 'circle'
@@ -25,8 +25,20 @@ class Aircraft:
 
     def go_ahead(self):
         if self.shape == 'square':
-            self.positionX += 10
+            if self.positionX <= C.MAXIMAL_X:
+                self.positionX += 10
 
     def go_back(self):
         if self.shape == 'square':
-            self.positionX -= 10
+            if self.positionX >= C.MINIMAL_X:
+                self.positionX -= 10
+
+    def go_up(self):
+        if self.shape == 'square':
+            if self.positionY >= 45:
+                self.positionY -= 10
+
+    def go_down(self):
+        if self.shape == 'square':
+            if self.positionY <= 550:
+                self.positionY += 10
