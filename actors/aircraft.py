@@ -11,7 +11,8 @@ class Aircraft:
         self.acceleration = 0
         self.shape = 'circle'
         self.vy = 100
-        self.direction = -1
+        self.directionY = 1
+        self.directionX = 1
 
     def draw(self):
         """
@@ -36,14 +37,25 @@ class Aircraft:
                 self.positionX -= 10
 
     def circleMove(self, dt):
-        if self.direction == 1:
+        if self.directionY == 1:
             if self.positionY <= 550:
                 self.positionY += C.GRAVITY * dt
             else:
-                self.direction = -1
+                self.directionY = -1
         else:
             if self.positionY >= 45:
                 self.positionY -= C.GRAVITY * dt
             else:
-                self.direction = 1
+                self.directionY = 1
+
+        if self.directionX == 1:
+            if self.positionX <= C.MAXIMAL_X:
+                self.positionX += C.GRAVITY * dt
+            else:
+                self.directionX = -1
+        else:
+            if self.positionX >= C.MINIMAL_X:
+                self.positionX -= C.GRAVITY * dt
+            else:
+                self.directionX = 1
 

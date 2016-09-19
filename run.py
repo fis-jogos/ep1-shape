@@ -1,4 +1,5 @@
 import sys; sys.path.append('.')
+import time
 from FGAme import *
 from actors.aircraft import Aircraft
 from stages.one import World
